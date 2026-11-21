@@ -20,7 +20,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%237a2428'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='%23f1eadb' font-family='serif' font-weight='700'%3E%E5%9B%8D%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300;400;700&family=Noto+Serif+TC:wght@500;700;900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300;400;700&family=Noto+Serif+TC:wght@500;600;700;900&family=Courier+Prime:wght@400;700&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
 <style>
 html,body{color-scheme:light only;background:#f1eadb}
 :root{
@@ -257,16 +257,20 @@ section{padding:64px 28px;position:relative}
   font-family:var(--mono);font-size:11px;font-weight:700;display:grid;place-items:center;transition:all .4s}
 .aizome .trk-no{background:#f4ecdb}
 .trk.open .trk-no{background:var(--shu);border-color:var(--shu);color:#fff;transform:scale(1.1)}
-.trk-name{font-size:17px;font-weight:700;line-height:1.35}
-.trk-name .song-title{display:block;font-family:var(--mincho);font-size:18px;font-weight:700;letter-spacing:.06em;line-height:1.35}
-.trk-name .song{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11.5px;font-weight:400;color:var(--muted);letter-spacing:.06em;margin-top:3px}
+.trk-name{font-size:17px;font-weight:700;line-height:1.35;min-width:0}
+.trk-name .song-title{display:block;white-space:nowrap;font-family:var(--mincho);font-size:15.5px;font-weight:600;letter-spacing:.14em;line-height:1.4;color:var(--ink)}
+.trk-name .song-title.latin{font-family:'Cormorant Garamond',var(--mincho);font-style:italic;font-weight:600;font-size:17px;letter-spacing:.01em}
+.trk-name .song-title .bk{font-style:normal;font-family:var(--mincho);font-weight:400;color:var(--kincha);font-size:.85em;letter-spacing:0}
+.trk-name .song-title .bk:first-child{margin-right:.15em}.trk-name .song-title .bk:last-child{margin-left:.15em}
+.trk-name .song{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10.5px;font-weight:400;color:var(--muted);letter-spacing:.08em;margin-top:2px;white-space:nowrap}
 .trk-body .lead{font-size:14.5px;color:var(--ai);padding-top:10px;letter-spacing:.1em}
 .trk-body .lead .line::before{content:"— ";color:var(--kincha)}
 .lyrics{margin-top:10px;padding:10px 0 10px 12px;border-left:2px solid var(--kincha)}
 .ly-ja{white-space:pre-line;font-size:14px;line-height:1.9;color:var(--ink)}
 .ly-zh{white-space:pre-line;font-size:12.5px;line-height:1.85;color:var(--muted);margin-top:6px}
-.yt{flex:none;display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--shu);color:#fff;font-size:8px;text-decoration:none;padding-left:2px;
-  box-shadow:0 2px 4px rgba(139,42,46,.3)}
+.yt{flex:none;display:inline-flex;align-items:center;justify-content:center;width:26px;height:22px;margin:-4px 0 -4px -4px;text-decoration:none}
+.yt .tri{display:block;width:0;height:0;border-left:8px solid var(--shu);border-top:5px solid transparent;border-bottom:5px solid transparent;transition:transform .2s}
+.yt:hover .tri,.yt:active .tri{transform:scale(1.25)}
 .yt:active{transform:scale(.9)}
 .trk-name .subt{display:block;font-size:13px;font-weight:400;color:#5b5f6a;margin-top:3px;letter-spacing:.08em}
 .trk-name small{display:block;font-family:var(--mono);font-size:11px;font-weight:400;color:var(--muted);letter-spacing:.15em}
@@ -597,8 +601,8 @@ footer .hanko{margin-top:22px;transform:rotate(-6deg)}
       <div class="timeline" data-side="A">
         <div class="trk open" data-side="A" data-no="A1" data-name="〈戀〉" data-cnt="600">
           <div class="trk-head"><span class="trk-no">A1</span>
-            <span class="trk-name"><span class="song-title">〈戀〉</span>
-              <span class="song">星野源・2023.05.30<a class="yt" href="https://www.youtube.com/watch?v=jhOVibLEDhA" target="_blank" rel="noopener" aria-label="在 YouTube 播放 星野源〈戀〉">▶</a></span></span>
+            <span class="trk-name"><span class="song-title"><i class="bk">『</i>戀<i class="bk">』</i></span>
+              <span class="song">星野源・2023.05.30<a class="yt" href="https://www.youtube.com/watch?v=jhOVibLEDhA" target="_blank" rel="noopener" aria-label="在 YouTube 播放 星野源〈戀〉"><i class="tri"></i></a></span></span>
             <span class="trk-time"><span class="eq"><i></i><i></i><i></i></span>0600</span></div>
           <div class="trk-body"><div>
             <p class="lead"><span class="line">那天起，日子多了另一個人的名字</span></p>
@@ -609,8 +613,8 @@ footer .hanko{margin-top:22px;transform:rotate(-6deg)}
         </div>
 <div class="trk" data-side="A" data-no="A2" data-name="〈キセキ〉" data-cnt="760">
           <div class="trk-head"><span class="trk-no">A2</span>
-            <span class="trk-name"><span class="song-title">〈キセキ〉</span>
-              <span class="song">GReeeeN・2023–2026<a class="yt" href="https://www.youtube.com/watch?v=DwTinTO0o9I" target="_blank" rel="noopener" aria-label="在 YouTube 播放 GReeeeN〈キセキ〉">▶</a></span></span>
+            <span class="trk-name"><span class="song-title"><i class="bk">『</i>キセキ<i class="bk">』</i></span>
+              <span class="song">GReeeeN・2023–2026<a class="yt" href="https://www.youtube.com/watch?v=DwTinTO0o9I" target="_blank" rel="noopener" aria-label="在 YouTube 播放 GReeeeN〈キセキ〉"><i class="tri"></i></a></span></span>
             <span class="trk-time"><span class="eq"><i></i><i></i><i></i></span>0760</span></div>
           <div class="trk-body"><div>
             <p class="lead"><span class="line">三年，把小事慢慢攢成奇蹟</span></p>
@@ -621,8 +625,8 @@ footer .hanko{margin-top:22px;transform:rotate(-6deg)}
         </div>
 <div class="trk" data-side="A" data-no="A3" data-name="〈Stand by me, Stand by you.〉" data-cnt="900">
           <div class="trk-head"><span class="trk-no">A3</span>
-            <span class="trk-name"><span class="song-title">〈Stand by me, Stand by you.〉</span>
-              <span class="song">平井大・2026.01.21<a class="yt" href="https://www.youtube.com/watch?v=lIXJfFM_J0E" target="_blank" rel="noopener" aria-label="在 YouTube 播放 平井大〈Stand by me, Stand by you.〉">▶</a></span></span>
+            <span class="trk-name"><span class="song-title latin"><i class="bk">『</i>Stand by me, Stand by you.<i class="bk">』</i></span>
+              <span class="song">平井大・2026.01.21<a class="yt" href="https://www.youtube.com/watch?v=lIXJfFM_J0E" target="_blank" rel="noopener" aria-label="在 YouTube 播放 平井大〈Stand by me, Stand by you.〉"><i class="tri"></i></a></span></span>
             <span class="trk-time"><span class="eq"><i></i><i></i><i></i></span>0900</span></div>
           <div class="trk-body"><div>
             <p class="lead"><span class="line">把「我願意」錄進錄音帶裡</span></p>
@@ -980,6 +984,15 @@ footer .hanko{margin-top:22px;transform:rotate(-6deg)}
     })(start);
     overrideTimer=setTimeout(()=>{override=null;deck.classList.remove('playing');onScroll();},3800);
   }
+
+  /* ---------- 歌名自動縮放，不換行 ---------- */
+  function fitTitles(){
+    document.querySelectorAll('.song-title').forEach(el=>{
+      el.style.fontSize=''; const box=el.parentElement; let fs=parseFloat(getComputedStyle(el).fontSize);
+      while(el.scrollWidth>box.clientWidth && fs>11){ fs-=.5; el.style.fontSize=fs+'px'; }
+    });
+  }
+  fitTitles(); addEventListener('resize',fitTitles); document.fonts&&document.fonts.ready.then(fitTitles);
 
   /* ---------- 曲目 ---------- */
   document.querySelectorAll('.yt').forEach(a=>a.addEventListener('click',e=>e.stopPropagation()));
