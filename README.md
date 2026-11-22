@@ -28,13 +28,13 @@
 4. 等 1～2 分鐘，網址會是：
    `https://<你的帳號>.github.io/<repository 名稱>/`
 
-## 上線後要改的一個地方：分享預覽網址
+## 分享預覽網址（已填好）
 
-打開 `index.html`，在最上面找到這兩行，把 `YOUR-NAME` 和 `YOUR-REPO` 換成你的帳號和 repository 名稱：
+`index.html` 最上面這兩行已經填好你們的網址，不用再改：
 
 ```html
-<meta property="og:url" content="https://YOUR-NAME.github.io/YOUR-REPO/">
-<meta property="og:image" content="https://YOUR-NAME.github.io/YOUR-REPO/og-image.jpg">
+<meta property="og:url" content="https://lykw4584.github.io/LiKanwedding/">
+<meta property="og:image" content="https://lykw4584.github.io/LiKanwedding/og-image.jpg">
 ```
 
 改完後，在 LINE 貼上連結就會出現酒紅桌巾＋錄音帶的預覽圖。
@@ -60,7 +60,48 @@
 ## 之後要補的內容（在 index.html 裡搜尋即可找到）
 
 - 回覆截止日期：搜尋 `○ 月 ○ 日`
-- A 面三首歌的歌詞：搜尋 `（歌詞）` 和 `（中文翻譯）`，把文字直接貼上取代即可（可以直接換行，會照原樣分行顯示）。每首前面有一行 `<!-- A1 歌詞 ... -->` 註解標示是哪一首。
-- 照片：搜尋 `class="ph"`（目前是斜線底的佔位框）
+- A 面三首歌的歌詞：改 `lyrics.json`（見下方說明），不用動 index.html
+- A 面相簿照片：見下方「替換相簿照片」
+- 歌詞本裡每首歌的照片：搜尋 `class="ph"`（目前是斜線底的佔位框）
 
 照片準備好後，也可以直接把照片和文字交給 Claude 更新。
+
+## 填歌詞：lyrics.json
+
+歌詞放在獨立的 `lyrics.json`，網頁打開時會自動帶入。在 GitHub 網頁上就能改：
+
+1. 點 `lyrics.json` → 右上角鉛筆圖示（Edit）
+2. 把文字貼在 `""` 兩個引號中間：`ja` 放日文、`zh` 放中文
+3. **換行請打 `\n`**（例如 `"第一行\n第二行"`），不要直接按 Enter
+4. 歌詞裡如果有半形雙引號 `"`，請改成全形「」或 “ ”
+5. 按 `Commit changes`，等 1～2 分鐘重新整理網頁
+
+```json
+{
+  "A1": { "ja": "日文第一行\n日文第二行", "zh": "中文第一行\n中文第二行" },
+  "A2": { "ja": "", "zh": "" },
+  "A3": { "ja": "", "zh": "" }
+}
+```
+
+留空的欄位會繼續顯示「（歌詞）」「（中文翻譯）」。
+※ lyrics.json 只在 GitHub Pages 上有效；直接用手機打開 index.html 檔案預覽時不會讀取。
+
+## 替換相簿照片（「← 左右滑動，或拖曳照片 →」那一區）
+
+照片放在 `photos/` 資料夾，檔名固定：
+
+| 順序 | 檔名 |
+|---|---|
+| 第 1 張 | `photos/gallery-1.jpg` |
+| 第 2 張 | `photos/gallery-2.jpg` |
+| 第 3 張 | `photos/gallery-3.jpg` |
+| 第 4 張 | `photos/gallery-4.jpg` |
+
+**換照片**：在 GitHub 進入 `photos` 資料夾 → `Add file` → `Upload files`，上傳**同檔名**的新照片（例如新的 `gallery-2.jpg`）就會直接覆蓋，不用動 index.html。
+
+- 建議直式照片（2:3，例如 1000×1500），超出比例的部分會自動裁切置中
+- 檔案建議壓在 300KB 以內，手機開起來比較快
+- **換順序**：把檔名互換即可
+- **加第 5 張以上**：在 index.html 搜尋 `gallery-4.jpg`，把那一整行複製一行貼在下面，改成 `gallery-5.jpg`，再上傳 `photos/gallery-5.jpg`
+- 換完如果手機還是看到舊照片，是瀏覽器快取，重新整理或等幾分鐘即可
