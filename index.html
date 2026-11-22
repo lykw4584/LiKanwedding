@@ -285,6 +285,7 @@ section{padding:64px 28px;position:relative}
 .trk.open .trk-body{grid-template-rows:1fr}
 .trk-body > div{overflow:hidden;padding-left:62px}
 .trk-body p{font-size:15px;color:#3f4652;padding-top:8px}
+.trk-body .song-photo{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;margin:14px 0 6px;transform:rotate(-1deg);border:8px solid #fff;border-bottom-width:26px;box-shadow:0 4px 12px rgba(0,0,0,.12);background:#ece4d3}
 .trk-body .ph{margin:12px 0 4px;aspect-ratio:4/3;transform:rotate(-1deg);border:8px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.12)}
 .trk-body .line{display:block;opacity:0;transform:translateX(-6px);transition:opacity .5s, transform .5s}
 .trk.open .trk-body .line{opacity:1;transform:none}
@@ -611,7 +612,8 @@ footer .hanko{margin-top:22px;transform:rotate(-6deg)}
             <p class="lead"><span class="line">那天起，日子多了另一個人的名字</span></p>
             <!-- A1 歌詞：把日文貼在 ly-ja、中文貼在 ly-zh（可直接換行） -->
             <div class="lyrics" data-ly="A1"><div class="ly-ja">（歌詞）</div><div class="ly-zh">（中文翻譯）</div></div>
-            <div class="ph">戀・照片</div>
+            <!-- A1 照片：photos/song-1.jpg -->
+            <img class="song-photo" src="photos/song-1.jpg" alt="戀" loading="lazy" decoding="async">
           </div></div>
         </div>
 <div class="trk" data-side="A" data-no="A2" data-name="『キセキ』" data-cnt="760">
@@ -623,7 +625,8 @@ footer .hanko{margin-top:22px;transform:rotate(-6deg)}
             <p class="lead"><span class="line">三年，把小事慢慢攢成奇蹟</span></p>
             <!-- A2 歌詞：把日文貼在 ly-ja、中文貼在 ly-zh（可直接換行） -->
             <div class="lyrics" data-ly="A2"><div class="ly-ja">（歌詞）</div><div class="ly-zh">（中文翻譯）</div></div>
-            <div class="ph">キセキ・照片</div>
+            <!-- A2 照片：photos/song-2.jpg -->
+            <img class="song-photo" src="photos/song-2.jpg" alt="キセキ" loading="lazy" decoding="async">
           </div></div>
         </div>
 <div class="trk" data-side="A" data-no="A3" data-name="『Stand by me, Stand by you.』" data-cnt="900">
@@ -635,7 +638,8 @@ footer .hanko{margin-top:22px;transform:rotate(-6deg)}
             <p class="lead"><span class="line">把「我願意」錄進錄音帶裡</span></p>
             <!-- A3 歌詞：把日文貼在 ly-ja、中文貼在 ly-zh（可直接換行） -->
             <div class="lyrics" data-ly="A3"><div class="ly-ja">（歌詞）</div><div class="ly-zh">（中文翻譯）</div></div>
-            <div class="ph">Stand by me, Stand by you.・照片</div>
+            <!-- A3 照片：photos/song-3.jpg -->
+            <img class="song-photo" src="photos/song-3.jpg" alt="Stand by me, Stand by you." loading="lazy" decoding="async">
           </div></div>
         </div>
       </div>
@@ -1014,6 +1018,7 @@ footer .hanko{margin-top:22px;transform:rotate(-6deg)}
     const trk=h.parentElement, open=!trk.classList.contains('open');
     trk.parentElement.querySelectorAll('.trk.open').forEach(o=>{ if(o!==trk) o.classList.remove('open'); });
     trk.classList.toggle('open',open);
+    requestAnimationFrame(fitTitles);
     if(open){ click(220,.08,.06); playTrack(trk.dataset.side,trk.dataset.no,trk.dataset.name,+trk.dataset.cnt); }
   }));
 
