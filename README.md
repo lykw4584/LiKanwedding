@@ -62,7 +62,7 @@
 - 回覆截止日期：搜尋 `○ 月 ○ 日`
 - A 面三首歌的歌詞：改 `lyrics.json`（見下方說明），不用動 index.html
 - A 面相簿照片：見下方「替換相簿照片」
-- 歌詞本裡每首歌的照片：搜尋 `class="ph"`（目前是斜線底的佔位框）
+- 歌詞本裡每首歌的照片：見下方「替換相簿照片」的歌詞本照片表
 
 照片準備好後，也可以直接把照片和文字交給 Claude 更新。
 
@@ -97,6 +97,24 @@
 | 第 2 張 | `photos/gallery-2.jpg` |
 | 第 3 張 | `photos/gallery-3.jpg` |
 | 第 4 張 | `photos/gallery-4.jpg` |
+
+歌詞本裡每首歌點開後的照片也在同一個資料夾：
+
+| 歌曲 | 檔名 |
+|---|---|
+| A1『戀』 | `photos/song-1.jpg` |
+| A2『キセキ』 | `photos/song-2.jpg` |
+| A3『Stand by me, Stand by you.』 | `photos/song-3.jpg` |
+
+結尾配圖（TO BE CONTINUED 上方）：`photos/ending.jpg`
+
+### 調整照片裁切位置
+
+照片超出框的部分會被裁掉。在 index.html 搜尋照片檔名（例如 `song-3.jpg`），同一行有 `object-position:50% 95%`：
+- 第二個數字是**上下**位置：0% ＝ 保留最上面、100% ＝ 保留最下面。天空太多就把數字調大
+- 第一個數字是左右位置，通常維持 50%（置中）
+
+目前設定：song-1 80%、song-2 75%、song-3 95%、ending 80%、相簿 50%
 
 **換照片**：在 GitHub 進入 `photos` 資料夾 → `Add file` → `Upload files`，上傳**同檔名**的新照片（例如新的 `gallery-2.jpg`）就會直接覆蓋，不用動 index.html。
 
