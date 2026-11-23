@@ -192,7 +192,7 @@ section{padding:64px 28px;position:relative}
   -webkit-mask:linear-gradient(90deg,transparent,#000 20%,#000 80%,transparent);mask:linear-gradient(90deg,transparent,#000 20%,#000 80%,transparent)}
 
 /* ============ 主視覺 ============ */
-.hero{padding:84px 28px 56px;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;justify-content:center}
+.hero{padding:84px 28px 56px;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center}
 .hero .row{display:flex;gap:16px;align-items:stretch}
 .hero .vt{font-family:var(--mincho);font-size:13px;letter-spacing:.6em;color:var(--muted);writing-mode:vertical-rl;border-left:1px solid #cfc4ad;padding-left:10px}
 .hero .main{flex:1;text-align:center}
@@ -285,7 +285,7 @@ section{padding:64px 28px;position:relative}
 .trk.open .trk-body{grid-template-rows:1fr}
 .trk-body > div{overflow:hidden;padding-left:62px}
 .trk-body p{font-size:15px;color:#3f4652;padding-top:8px}
-.trk-body .song-photo{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;margin:14px 0 6px;transform:rotate(-1deg);border:8px solid #fff;border-bottom-width:26px;box-shadow:0 4px 12px rgba(0,0,0,.12);background:#ece4d3}
+.trk-body .song-photo{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;margin:14px 0 6px;transform:rotate(-1deg);border:8px solid #fff;border-bottom-width:26px;box-shadow:0 4px 12px rgba(0,0,0,.12);background:#ece4d3}
 .trk-body .ph{margin:12px 0 4px;aspect-ratio:4/3;transform:rotate(-1deg);border:8px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.12)}
 .trk-body .line{display:block;opacity:0;transform:translateX(-6px);transition:opacity .5s, transform .5s}
 .trk.open .trk-body .line{opacity:1;transform:none}
@@ -305,7 +305,7 @@ section{padding:64px 28px;position:relative}
 .polaroid{flex:0 0 66%;scroll-snap-align:center;background:#fffdf8;padding:10px 10px 36px;box-shadow:0 6px 16px rgba(40,30,20,.15);position:relative}
 .polaroid:nth-child(odd){transform:rotate(-1.5deg)}.polaroid:nth-child(even){transform:rotate(1.2deg)}
 .polaroid .ph{aspect-ratio:4/5}
-.polaroid img{display:block;width:100%;aspect-ratio:2/3;object-fit:cover;background:#ece4d3}
+.polaroid img{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;background:#ece4d3}
 .polaroid figcaption{position:absolute;bottom:9px;left:0;right:0;text-align:center;font-size:13px;color:var(--muted)}
 .polaroid::after{content:"";position:absolute;top:-10px;left:50%;width:72px;height:20px;transform:translateX(-50%) rotate(-3deg);background:rgba(196,168,119,.5)}
 .gal-arrow{display:none;position:absolute;top:50%;transform:translateY(-60%);z-index:2;width:38px;height:38px;border-radius:50%;border:1px solid #d6c9ad;
@@ -413,6 +413,11 @@ footer{text-align:center;padding:30px 28px calc(140px + env(safe-area-inset-bott
 .cr-row:active b{color:#fff}
 .cr-tag{margin-top:12px;font-size:12.5px;color:#aab4c8;letter-spacing:.1em}
 .cr-tag b{color:#f1eadb;font-weight:700}
+.ending{width:76%;max-width:320px;margin:0 auto 34px;background:#f6f0e3;padding:10px 10px 34px;transform:rotate(1.5deg);position:relative;
+  box-shadow:0 14px 28px rgba(0,0,0,.35)}
+.ending::before{content:"";position:absolute;top:-11px;left:50%;width:76px;height:22px;transform:translateX(-50%) rotate(-4deg);background:rgba(196,168,119,.55)}
+.ending img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+.ending::after{content:"2027.03.28";position:absolute;bottom:9px;right:14px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--shu)}
 footer .end{font-family:var(--mono);font-size:11px;letter-spacing:.4em}
 footer .thanks{margin-top:12px;font-family:var(--mincho);font-size:16px;color:#f1e9d8;letter-spacing:.3em}
 footer .hanko{margin-top:22px;transform:rotate(-6deg)}
@@ -612,8 +617,8 @@ footer .hanko{margin-top:22px;transform:rotate(-6deg)}
             <p class="lead"><span class="line">那天起，日子多了另一個人的名字</span></p>
             <!-- A1 歌詞：把日文貼在 ly-ja、中文貼在 ly-zh（可直接換行） -->
             <div class="lyrics" data-ly="A1"><div class="ly-ja">（歌詞）</div><div class="ly-zh">（中文翻譯）</div></div>
-            <!-- A1 照片：photos/song-1.jpg -->
-            <img class="song-photo" src="photos/song-1.jpg" alt="戀" loading="lazy" decoding="async">
+            <!-- A1 照片：photos/song-1.jpg；object-position 第二個數字越大＝畫面越往下（0%=最上、100%=最下） -->
+            <img class="song-photo" src="photos/song-1.jpg" alt="戀" width="900" height="900" style="object-position:50% 80%" loading="lazy" decoding="async">
           </div></div>
         </div>
 <div class="trk" data-side="A" data-no="A2" data-name="『キセキ』" data-cnt="760">
@@ -625,8 +630,8 @@ footer .hanko{margin-top:22px;transform:rotate(-6deg)}
             <p class="lead"><span class="line">三年，把小事慢慢攢成奇蹟</span></p>
             <!-- A2 歌詞：把日文貼在 ly-ja、中文貼在 ly-zh（可直接換行） -->
             <div class="lyrics" data-ly="A2"><div class="ly-ja">（歌詞）</div><div class="ly-zh">（中文翻譯）</div></div>
-            <!-- A2 照片：photos/song-2.jpg -->
-            <img class="song-photo" src="photos/song-2.jpg" alt="キセキ" loading="lazy" decoding="async">
+            <!-- A2 照片：photos/song-2.jpg；object-position 第二個數字越大＝畫面越往下（0%=最上、100%=最下） -->
+            <img class="song-photo" src="photos/song-2.jpg" alt="キセキ" width="900" height="900" style="object-position:50% 75%" loading="lazy" decoding="async">
           </div></div>
         </div>
 <div class="trk" data-side="A" data-no="A3" data-name="『Stand by me, Stand by you.』" data-cnt="900">
@@ -638,8 +643,8 @@ footer .hanko{margin-top:22px;transform:rotate(-6deg)}
             <p class="lead"><span class="line">把「我願意」錄進錄音帶裡</span></p>
             <!-- A3 歌詞：把日文貼在 ly-ja、中文貼在 ly-zh（可直接換行） -->
             <div class="lyrics" data-ly="A3"><div class="ly-ja">（歌詞）</div><div class="ly-zh">（中文翻譯）</div></div>
-            <!-- A3 照片：photos/song-3.jpg -->
-            <img class="song-photo" src="photos/song-3.jpg" alt="Stand by me, Stand by you." loading="lazy" decoding="async">
+            <!-- A3 照片：photos/song-3.jpg；object-position 第二個數字越大＝畫面越往下（0%=最上、100%=最下） -->
+            <img class="song-photo" src="photos/song-3.jpg" alt="Stand by me, Stand by you." width="900" height="900" style="object-position:50% 95%" loading="lazy" decoding="async">
           </div></div>
         </div>
       </div>
@@ -649,10 +654,10 @@ footer .hanko{margin-top:22px;transform:rotate(-6deg)}
     <div class="gal-wrap reveal">
       <button class="gal-arrow prev" aria-label="上一張">‹</button>
       <div class="gallery" id="gallery">
-        <figure class="polaroid"><img src="photos/gallery-1.jpg" alt="婚紗照 1" loading="lazy" decoding="async"></figure>
-        <figure class="polaroid"><img src="photos/gallery-2.jpg" alt="婚紗照 2" loading="lazy" decoding="async"></figure>
-        <figure class="polaroid"><img src="photos/gallery-3.jpg" alt="婚紗照 3" loading="lazy" decoding="async"></figure>
-        <figure class="polaroid"><img src="photos/gallery-4.jpg" alt="婚紗照 4" loading="lazy" decoding="async"></figure>
+        <figure class="polaroid"><img src="photos/gallery-1.jpg" alt="婚紗照 1" width="1000" height="1500" style="object-position:50% 50%" loading="lazy" decoding="async"></figure>
+        <figure class="polaroid"><img src="photos/gallery-2.jpg" alt="婚紗照 2" width="1000" height="1500" style="object-position:50% 50%" loading="lazy" decoding="async"></figure>
+        <figure class="polaroid"><img src="photos/gallery-3.jpg" alt="婚紗照 3" width="1000" height="1500" style="object-position:50% 50%" loading="lazy" decoding="async"></figure>
+        <figure class="polaroid"><img src="photos/gallery-4.jpg" alt="婚紗照 4" width="1000" height="1500" style="object-position:50% 50%" loading="lazy" decoding="async"></figure>
       </div>
       <button class="gal-arrow next" aria-label="下一張">›</button>
     </div>
@@ -765,7 +770,7 @@ footer .hanko{margin-top:22px;transform:rotate(-6deg)}
       <div class="sub">BONUS TRACK · R.S.V.P.</div>
       <div class="desc">這首隱藏曲目，<br>需要你的聲音才完整。</div>
     </div>
-    <p class="deadline reveal" id="rsvpDeadline">請於 <b>○ 月 ○ 日</b> 前回覆</p>
+    <p class="deadline reveal" id="rsvpDeadline">請於 <b>2027 年 1 月 31 日</b> 前回覆</p>
     <a class="rsvp-card reveal" id="rsvpCard" target="_blank" rel="noopener" href="https://forms.gle/KLSmKh5UC1rg7zHJ8">
       <div class="rsvp-label">
         <span class="rec"><i></i>REC</span>
@@ -795,8 +800,10 @@ footer .hanko{margin-top:22px;transform:rotate(-6deg)}
       <div class="cr-title">PERFORMED BY</div>
       <a class="cr-row" href="https://www.instagram.com/ann_john_li" target="_blank" rel="noopener"><span>李昆蔚</span><i></i><b>@ann_john_li</b></a>
       <a class="cr-row" href="https://www.instagram.com/kan_yuchen" target="_blank" rel="noopener"><span>甘育甄</span><i></i><b>@kan_yuchen</b></a>
-      <p class="cr-tag">當天的照片，歡迎標記 <b>#甘蔚人生</b></p>
+      <p class="cr-tag">當天的照片及影片，記得標記 <b>我們</b></p>
     </div>
+    <!-- 結尾配圖：photos/ending.jpg -->
+    <figure class="ending reveal"><img src="photos/ending.jpg" alt="Save the date" width="900" height="1600" style="object-position:50% 80%" loading="lazy" decoding="async"></figure>
     <div class="end">— TO BE CONTINUED —</div>
     <div class="thanks">未完，待續。<br>謝謝你，陪我們一起錄。</div>
     <div class="hanko">甘<br>蔚</div>
